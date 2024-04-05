@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="overflow-x-hidden">
+    <b class="flex items-center justify-center w-screen">Poke-Info website!</b>
+    <div class="flex items-center justify-center w-screen p-10">
+        <ol>
+            {% for pokemon, pokemonid in pokemon_list|zip(poke_ids) %}
+            <li>
+                <a href="{{url_for('pokemon_info', pokemon_name=pokemon)}}">
+                    <div
+                        class="bg-gray-400 m-4 flex rounded-xl border hover:scale-105 transition hover:drop-shadow-2xl">
+                        <img class="bg-gray-300 w-12 m-4 p-1 rounded-3xl border border-gray-600"
+                            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemonid}}.png" />
+                        <div class="flex justify-center items-center w-full text-gray-300 pr-10">
+                            {{pokemon }}
+                        </div>
+                    </div>
+                </a>
+
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</section>
+{% endblock %}
