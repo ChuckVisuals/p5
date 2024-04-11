@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 from .model import PokeClient
 app = Flask(__name__)
@@ -11,9 +12,9 @@ def index():
 
     Check the README for more detail.
     """
-    
+    key = os.environ.get('SERECT_KEY')
     return render_template('index.html',
-                           pokemon_list=poke_client.get_pokemon_list(),poke_ids=poke_client.get_pokemon_ids())
+                           pokemon_list=poke_client.get_pokemon_list(),poke_ids=poke_client.get_pokemon_ids(), key=key)
 
 @app.route('/pokemon/<pokemon_name>')
 def pokemon_info(pokemon_name):
