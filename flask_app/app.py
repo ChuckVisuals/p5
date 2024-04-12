@@ -12,7 +12,7 @@ def index():
 
     Check the README for more detail.
     """
-    #key = os.environ.get('SERECT_KEY')
+    #key = os.environ.get('SECRET_KEY')
     
     return render_template('index.html',
                            pokemon_list=poke_client.get_pokemon_list(),poke_ids=poke_client.get_pokemon_ids())
