@@ -12,10 +12,10 @@ def index():
 
     Check the README for more detail.
     """
-    #key = os.environ.get('SECRET_KEY')
+    key = os.environ.get('SECRET')
     
     return render_template('index.html',
-                           pokemon_list=poke_client.get_pokemon_list(),poke_ids=poke_client.get_pokemon_ids())
+                           pokemon_list=poke_client.get_pokemon_list(),poke_ids=poke_client.get_pokemon_ids(), key=key)
 
 @app.route('/pokemon/<pokemon_name>')
 def pokemon_info(pokemon_name):
